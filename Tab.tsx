@@ -11,7 +11,7 @@ const FormInputGroup = ({ label, ...rest }: Props) => {
     <View style={styles.container}>
       {label && <Text style={styles.label}>{label}</Text>}
       <View style={styles.inputGroup}>
-        <TextInput style={styles.input} {...rest} />
+        <TextInput style={styles.input} {...rest}  />
       </View>
     </View>
   )

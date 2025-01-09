@@ -5,7 +5,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import { Colors } from '../constants/Colors';
 
-export default function ImagePickerExample({ image, setImage }:{image: any, setImage: any}) {
+export default function ImagePickerCom({ image, setImage }: { image: any, setImage: any }) {
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         alignItems: 'center',
         justifyContent: 'center',
+        overflow: 'hidden'
     },
     image: {
         width: '100%',

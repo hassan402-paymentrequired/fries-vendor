@@ -8,12 +8,12 @@ const Product = () => {
   const { width, height } = Dimensions.get("window");
   return (
     <SafeAreaView style={[styles.container, { width }]}>
-      <Text style={styles.title}>My Food List</Text>
-      <View style={[styles.container, { marginTop: 10, width: '100%' }]}>
+      {/* <Text style={styles.title}>My Food List</Text> */}
+      <View style={[styles.container, {  width: '100%' }]}>
         <FlatList
         showsVerticalScrollIndicator={false}
           data={[1, 2, 4, 5, 56, 3,4,5,6,4,3,3,3,3]}
-          style={{padding:5, gap:10, marginBottom: 19, width}}
+          style={{ marginBottom: 19}}
           renderItem={({ item }) => (
             <View style={styles.item}>
               <View style={styles.itemInner}>
@@ -52,7 +52,8 @@ export default Product
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.Custom.background
+    backgroundColor: Colors.Custom.background,
+    padding: 10,
   },
   title: {
     fontSize: 27,
@@ -63,14 +64,16 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 100,
     shadowColor: '#000',
-    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
-
     marginTop: 10,
     overflow: 'hidden',
     borderRadius: 5,
     flexDirection: 'row',
     gap: 3,
-    padding: 3
+    padding: 3,
+    borderRightWidth: 3,
+    borderColor: Colors.Custom[50],
+    borderBottomWidth: 2,
+    borderWidth: 1
   },
   itemInner: {
     flex: 1,

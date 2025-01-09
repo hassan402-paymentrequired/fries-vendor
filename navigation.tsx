@@ -21,18 +21,19 @@ import { BlurView } from 'expo-blur';
 import { Colors } from './constants/Colors';
 import { Text, View } from 'react-native';
 import ProductIcon from './assets/icons/Product';
+import SingleMessage from './screens/notification/message/show';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator()
-const BottomTab = createMaterialTopTabNavigator();
+const TopTab = createMaterialTopTabNavigator();
 
 
 const TopTabLayout = () => {
     return (
-        <BottomTab.Navigator >
-            <BottomTab.Screen name="notifications" component={Notification} />
-            <BottomTab.Screen name="messages" component={Message} />
-        </BottomTab.Navigator>
+        <TopTab.Navigator >
+            <TopTab.Screen name="notifications" component={Notification} />
+            <TopTab.Screen name="messages" component={Message} />
+        </TopTab.Navigator>
     )
 }
 
@@ -42,7 +43,7 @@ const TabLayout = () => {
         <Tab.Navigator screenOptions={({ route }) => ({
             tabBarActiveTintColor: 'tomato',
             tabBarInactiveTintColor: 'gray',
-            headerShown: false,
+           
             tabBarBadgeStyle: '',
             tabBarHideOnKeyboard: true,
             tabBarBackground: () => (
@@ -72,6 +73,7 @@ const TabLayout = () => {
                             stroke={focused ? Colors.Custom[50] :  Colors.Custom.text}
                         />
                     ),
+                     headerShown: false,
                     tabBarLabel: ({ focused }) => (
                         <Text
                             style={{
@@ -128,12 +130,13 @@ const TabLayout = () => {
                             />
                         </View>
                     ),
+                    headerShown: false,
                     tabBarLabel: ({ focused }) => (
                         <Text></Text>
                     ),
                 }}
             />
-            <Tab.Screen name='notification' component={TopTabLayout}
+            <Tab.Screen name='Notifications' component={TopTabLayout}
                 options={{
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialIcons name="notifications-none" size={20}
@@ -187,7 +190,7 @@ const Navigation = () => {
             <Stack.Navigator>
                 <Stack.Screen name='onboarding' component={Onboarding} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-                {/* <Stack.Screen name='Register' component={Register} options={{ headerShown: false }} /> */}
+                <Stack.Screen name='ChatScreen' component={SingleMessage} options={{ headerShown: true }} />
                 <Stack.Screen name='tab' component={TabLayout} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
